@@ -47,13 +47,14 @@ body {
     background-image: linear-gradient(to right, #2a2a2a, #414040, #2a2a2a);
     border-radius: 25px;
     border-color: rgb(0, 0, 0);
-    width: 150px;
     height: 36px;
     color: #e6e6e6;
     padding: 0 20px;
 }
 
-
+.log {
+    width: 150px;
+}
 
 /* Ниже не трогать, чтобы не поломать ничего */
 
