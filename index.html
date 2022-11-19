@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>ZTH Mining Informer</title>
+    <meta name="description" content=""> <!-- Тут должно быть описание сайта -->
+    <meta name="keywords" content="mining zth signum blockchain smart contract">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@signumjs/core/dist/signumjs.min.js"></script>
+    <script src='https://cdn.jsdelivr.net/npm/@signumjs/wallets/dist/signumjs.wallets.min.js'></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <div class="modal" id="modal_window">
+        <div class="modal-bg modal-exit"></div>
+        <div class="modal-container">
+          <h1 id="modal_heading_text">Error...</h1>
+          <h2 id="modal_text">Pure Vanilla JavaScript</h2>
+          <button class="modal-close modal-exit">X</button>
+        </div>
+    </div>
+
+<!-- Выше невидимая часть -->
+
+    <section>
+        <header>
+            <img src="">
+            <a href=""></a>
+            <a href=""></a>
+            <a href=""></a>
+            <div name="linked" style="display: none;"><button id="btn_unlink">Разъеденить</button></div>
+            <div name="unlinked"><button id="btn_link">Connect to XT wallet</button></div>
+        </header>
+        <nav>
+            <h1></h1>
+        </nav>
+        <footer>
+            
+        </footer>
+    </section>
+
+    <div>
+        <div name="linked">
+            <h3><output id="user_rs"></output></h3>
+            <table>
+                <tr><td>Аккаунт:</td><td><output id="user_name"></output></td></tr>
+                <tr><td>Signa:</td><td><output id="user_signa"></output> (+<output id="user_signa_locked"></output>locked)</td></tr>
+                <tr><td>VGB:</td><td><output id="user_tmg"></output> (+<output id="user_tmg_locked"></output> locked)</td></tr>
+                <tr><td>ZTH:&nbsp;</td><td><output id="user_lctmg"></output> (+<output id="user_lctmg_locked"></output> locked)</td></tr>
+                <tr><td>Логика:&nbsp;</td><td><output id="user_liquidity_signa"></output> VGB добывает <output id="user_liquidity_tmg"></output> ZTH</td></tr>
+                    <table>
+                    <center><button><a href="signum://requestBurst?receiver=S-X3F9-KL43-GPMV-2YTHN&amountNQT=25033000000&feeNQT=2000000&immutable=false&message=VGB&messageIsText=false">Оплатить с FHOENIX Wallet</a></button></center>
+                </table>
+            </table>
+        </div>
+
+        <div class="box">
+            <h3>Купить VGB</h3>
+            <table>
+                <tr><td>Контракт:&nbsp;</td><td><output id="contract_rs"></output></td></tr>
+                <tr><td>Цена:</td><td><output id="contract_signa"></output> 1VGB = <output id="contract_tmg"></output>250 SIGNA</td></tr>
+                <tr><td>Комиссия за платеж:</td><td><output id="contract_liquidity"></output> 0.33 SIGNA</td></tr>
+                <tr><td>Адрес сжигания:</td><td><output id="contract_owner"></output></td></tr>
+                <table>
+                    <tr style="display:none;"><td>Количество:</td><td><input type="number" style="width: 25ch;" id="ipt_buy_tmg"></td></tr>
+                    <tr><td>Сумма в SIGNA:</td><td><input type="number" style="width: 25ch;" id="ipt_buy_signa"></td></tr>
+                </table>
+                <button id="btn_buy" class="hundred">Оплатить</button>
+            </table>
+        </div>
+    </div>
+
+<!-- Ниже невидимая часть -->
+
+    <main class="light">
+        <div class="box" style="display:none;">
+            <h3>Купить VGB</h3>
+            <table>
+                <tr><td>Количество:</td><td><input type="number" style="width: 25ch;" id="ipt_buy_tmg"></td></tr>
+                <tr><td>Сумма в SIGNA:</td><td><input type="number" style="width: 25ch;" id="ipt_buy_signa"></td></tr>
+            </table>
+            <button id="btn_buy" class="hundred">Оплатить</button>
+        </div>
+        <div class="box" style="display:none;">
+            <h3>Продать VGB</h3>
+            <table>
+                <tr><td>Количество:</td><td><input type="number" style="width: 25ch;" id="ipt_sell_tmg"></td></tr>
+                <tr><td>Effective price:</td><td><output id="sell_effective_price"></output> Signa</td></tr>
+                <tr><td>Price impact:</td><td><output id="sell_price_impact"></output>%</td></tr>
+                <tr><td>Валюта:&nbsp;</td><td><output id="sell_op_cost_signa"></output> Signa and <output id="sell_op_cost_tmg"></output> VGB</td></tr>
+                <tr><td>Внесите:</td><td><input type="number" style="width: 25ch;" id="ipt_sell_signa"></td></tr>
+            </table>
+            <button id="btn_sell" class="hundred">Продать</button><br>
+        </div>
+        <div class="box" style="display:none;">
+            <h3>Добавить ликвидность</h3>
+            <table>
+                <tr><td>Добавить VGB:</td><td> <input type="number" style="width: 25ch;" id="ipt_add_tmg"></td></tr>
+                <tr><td>Добавить SIGNA:</td><td><input type="number" style="width: 25ch;" id="ipt_add_signa"></td></tr>
+                <tr><td>Operational costs:&nbsp;</td><td><output id="add_op_cost"></output> Signa</td></tr>
+                <tr><td>To be refunded:</td><td><output id="add_refunded_signa"></output> Signa and <output id="add_refunded_tmg"></output> VGB</td></tr>
+                <tr><td>Added liquidity:</td><td><output id="add_lctmg"></output> lcTMG</td></tr>
+            </table>
+            <button id="btn_add" class="hundred">Добавить</button><br>
+        </div>
+        <div class="box" style="display:none;">
+            <h3>Вернуть ликвидность</h3>
+            <table>
+                <tr><td>VGB возврат:</td><td><input type="number" style="width: 25ch;" id="ipt_remove_lctmg"></td></tr>
+                <tr><td>Operational costs:&nbsp;</td><td><output id="remove_op_cost"></output> Signa</td></tr>
+                <tr><td>Signa to receive:</td><td><output id="remove_signa"></output></td></tr>
+                <tr><td>Объем:</td><td><output id="remove_tmg"></output></td></tr>
+            </table>
+            <button id="btn_remove" class="hundred">Вернуть</button><br>
+        </div>
+    </main>
+    <div class="info light">
+         <div class="box" style="display:none;">
+            <h3>Книга ордеров - Покупка</h3>
+            <table class="order_table">
+                <thead>
+                    <tr>
+                        <th>Account</th><th>Qty</th><th>Цена</th><th>Всего</th>
+                    </tr>
+                </thead>
+                <tbody id="buy_orders">
+                </tbody>
+            </table>
+            * Trade also at <a style="font-weight: bold; text-decoration: none;" href="https://www.signumswap.com/tokens/9518219425200752102"><span style="color: black;">Signum</span><span style="color: #8e44ad;">Swap</span></a>
+        </div>
+        <div class="box" style="display:none;">
+            <h3>Книга ордеров - Продажа</h3>
+            <table class="order_table">
+                <thead>
+                    <tr>
+                        <th>Account</th><th>Qty</th><th>Цена</th><th>Всего</th>
+                    </tr>
+                </thead>
+                <tbody id="sell_orders">
+                </tbody>
+            </table>
+            * Trade also at <a style="font-weight: bold; text-decoration: none;" href="https://www.signumswap.com/tokens/9518219425200752102"><span style="color: black;">Signum</span><span style="color: #8e44ad;">Swap</span></a>
+        </div>
+    </div>
+    
+<script src="script.js" type="text/javascript" href="script.js"></script>
+</body>
+</html>
