@@ -5,6 +5,55 @@ body {
     color: #fff;
 }
 
+.header {
+    background-image: url("img/Фон_header.jpg");
+    background-size: 100% auto;
+}
+
+.header header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 35px 0;
+}
+
+.header img {
+    width: 60px;
+    margin-right: auto;
+}
+
+.header .log {
+    margin-left: auto;
+}
+
+.header a {
+    color: white;
+    text-decoration: none;
+    padding: 20px;
+    margin: 0 2px;
+}
+
+.header a:hover {
+    background-color: rgba(128, 128, 128, 0.5);
+    border-radius: 5px;
+    transition: linear .2s;
+}
+
+.header a:active {
+    color: #bd86f0;
+}
+
+.header button {
+    background-image: linear-gradient(to right, #2a2a2a, #414040, #2a2a2a);
+    border-radius: 25px;
+    border-color: rgb(0, 0, 0);
+    height: 36px;
+    color: #e6e6e6;
+    padding: 0 20px;
+}
+
+
+
 /* Ниже не трогать, чтобы не поломать ничего */
 
 .status {
