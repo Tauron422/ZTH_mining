@@ -45,6 +45,7 @@ body {
 
 .header button {
     background-image: linear-gradient(to right, #2a2a2a, #414040, #2a2a2a);
+    width: 150px;
     border-radius: 25px;
     border-color: rgb(0, 0, 0);
     height: 36px;
