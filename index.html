@@ -35,15 +35,48 @@
             <div name="linked" style="display: none;" class="log"><button id="btn_unlink">Выйти</button></div>
             <div name="unlinked" class="log"><button id="btn_link">Зайти в кабинет</button></div>
         </header>
-        <nav>
-            <h1></h1>
+
+        <nav class="nav_header">
+            <div class="cache_name">
+                <h1>Мой кошелёк</h1>
+            </div>
+            <div name="linked" class="cache">
+                <h2>Аккаунт</h2>
+                <h3><output id="user_rs">S-AAAA-BBBB-CCCC-DDDDD</output>.<output id="user_name">_</output></h3>
+                <div class="coin_table">
+                    <div>
+                        <p>Signa</p>
+                        <output id="user_signa">_</output>
+                    </div>
+                    <div>
+                        <p>VGB</p>
+                        <output id="user_tmg">_</output>
+                    </div>
+                    <div>
+                        <p>ZTH</p>
+                        <output id="user_lctmg">_</output>
+                    </div>
+                </div>
+                <hr>
+                <p>Майнинг</p>
+                <div class="mining">
+                    <output id="user_liquidity_signa">_</output>
+                    <p>&nbsp;VGB</p>
+                    <div class="mining_center">
+                        <p>добывает</p>
+                    </div>
+                    <output id="user_liquidity_tmg">_</output>
+                    <p>&nbsp;ZTH</p>
+                </div>
+            </div>
         </nav>
+
         <footer>
             
         </footer>
     </section>
 
-    <div>
+    <!-- <div>
         <div name="linked">
             <h3><output id="user_rs"></output></h3>
             <table>
@@ -52,11 +85,11 @@
                 <tr><td>VGB:</td><td><output id="user_tmg"></output> (+<output id="user_tmg_locked"></output> locked)</td></tr>
                 <tr><td>ZTH:&nbsp;</td><td><output id="user_lctmg"></output> (+<output id="user_lctmg_locked"></output> locked)</td></tr>
                 <tr><td>Логика:&nbsp;</td><td><output id="user_liquidity_signa"></output> VGB добывает <output id="user_liquidity_tmg"></output> ZTH</td></tr>
-                    <table>
+                <table>
                     <center><button><a href="signum://requestBurst?receiver=S-X3F9-KL43-GPMV-2YTHN&amountNQT=25033000000&feeNQT=2000000&immutable=false&message=VGB&messageIsText=false">Оплатить с FHOENIX Wallet</a></button></center>
                 </table>
             </table>
-        </div>
+        </div> -->
 
         <div class="box">
             <h3>Купить VGB</h3>
