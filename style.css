@@ -103,10 +103,12 @@ body {
 }
 
 .coin_table {
-    display: flex;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1ch;
     font-size: 1.8em;
     padding-bottom: 1ch;
+    margin: 0 3ch 0;
 }
 
 .cache hr {
@@ -122,9 +124,17 @@ body {
 }
 
 .mining {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr;
     font-size: 1.3em;
+}
+
+.mining div:first-child {
+    margin-left: auto;
+}
+
+.mining div:last-child {
+    margin-right: auto;
 }
 
 .mining_center {
