@@ -29,6 +29,7 @@ body {
 .header a {
     color: white;
     text-decoration: none;
+    font-weight: bold;
     padding: 20px;
     margin: 0 2px;
 }
@@ -45,16 +46,90 @@ body {
 
 .header button {
     background-image: linear-gradient(to right, #2a2a2a, #414040, #2a2a2a);
-    width: 150px;
+    width: 160px;
     border-radius: 25px;
     border-color: rgb(0, 0, 0);
     height: 36px;
     color: #e6e6e6;
+    font-weight: bold;
     padding: 0 20px;
 }
 
 .log {
-    width: 150px;
+    width: 160px;
+}
+
+.nav_header {
+    padding: 7ch 0 2ch 7ch;
+}
+
+.cache {
+    background-image: url("img/Фон_кеш.png");
+    background-size: 100% auto;
+    width: 80ch; /*16*/
+    height: 45ch; /*на 9*/
+    text-align: center;
+    border: solid 2px black;
+    border-radius: 1ch;
+    box-shadow: 0 0 20px 0 #34495e;
+}
+
+.nav_header h1 {
+    margin: 0;
+    color: black;
+    -webkit-text-stroke: 0.25px white;
+    text-shadow: 0 0 3px white;
+    font-size: 1.5em;
+}
+
+.cache_name {
+    padding: 0 0 2ch 19px;
+    text-align: center;
+    width: 306px;
+}
+
+.cache h2, .cache h3, .cache p, .cache output {
+    -webkit-text-stroke: 0.35px black;
+    text-shadow: 0 0 10px black;
+    margin: 0;
+}
+
+.cache h2 {
+    padding: 2ch 0 1ch;
+}
+
+.cache h3 {
+    padding-bottom: 2ch;
+}
+
+.coin_table {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1ch;
+    font-size: 1.8em;
+    padding-bottom: 1ch;
+}
+
+.cache hr {
+    margin: 0 auto 0;
+    width: 75%;
+}
+
+.cache > p {
+    font-size: 1.8em;
+    padding: 1ch 0 1.5ch;
+    margin: 0 auto 0 auto;
+    width: 30ch;
+}
+
+.mining {
+    display: flex;
+    justify-content: center;
+    font-size: 1.3em;
+}
+
+.mining_center {
+    margin: 0 3ch 0 3ch;
 }
 
 /* Ниже не трогать, чтобы не поломать ничего */
