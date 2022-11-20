@@ -126,12 +126,17 @@ body {
     padding-bottom: 1ch;
 }
 
+.coin_table p:last-child {
+    padding-bottom: 0;
+    font-size: 0.7em;
+}
+
 .cache hr {
     margin: 0 auto 0;
     width: 75%;
 }
 
-.cache > p {
+/*.cache > p {
     font-size: 1.8em;
     padding: 2ch 0 1ch;
     margin: 0 auto 0 auto;
@@ -154,7 +159,7 @@ body {
 
 .mining_center {
     margin: 0 3ch 0 3ch;
-}
+}*/
 
 /* Ниже не трогать, чтобы не поломать ничего */
 
